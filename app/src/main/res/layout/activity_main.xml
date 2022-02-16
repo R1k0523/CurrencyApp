@@ -18,20 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="12dp"
-        tools:context=".MainActivity">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        tools:context=".presentation.view.MainActivity">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -100,7 +87,6 @@
                         android:id="@+id/from_spinner"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#0048FF"
                         android:entries="@array/currency_codes"
                         android:padding="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +97,6 @@
                         android:id="@+id/to_spinner"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#0048FF"
                         android:entries="@array/currency_codes"
                         android:padding="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -143,9 +128,5 @@
                         app:srcCompat="@drawable/ic_round_swap_calls_24" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

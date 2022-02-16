@@ -1,15 +1,11 @@
-package ru.boringowl.parapp
+package ru.boringowl.parapp.presentation.view
 
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import ru.boringowl.parapp.databinding.ActivityMainBinding
 import ru.boringowl.parapp.presentation.viewmodel.MainViewModel
 import java.math.RoundingMode
@@ -39,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.fromSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
