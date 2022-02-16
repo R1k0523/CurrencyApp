@@ -28,7 +28,7 @@ object DataTypeConverter {
     }
 
     @TypeConverter
-    fun TimestampToString(ts: Timestamp): String {
+    fun timestampToString(ts: Timestamp): String {
         return gson.toJson(ts)
     }
 }

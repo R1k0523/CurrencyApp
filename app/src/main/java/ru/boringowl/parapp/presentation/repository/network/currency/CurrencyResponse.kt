@@ -4,9 +4,7 @@ import ru.boringowl.parapp.domain.model.CurrencyRate
 import java.sql.Timestamp
 
 data class CurrencyResponse(
-    val result: String,
     val time_next_update_unix: Long,
-    val time_next_update_utc: String,
     val base_code: String,
     val conversion_rates: HashMap<String, Float>,
 ) {
@@ -24,9 +22,7 @@ data class CurrencyResponse(
     }
 
     constructor() : this(
-        "",
         0L,
-        "",
         "",
         hashMapOf()
     )

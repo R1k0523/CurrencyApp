@@ -11,5 +11,6 @@ class MainViewModel : ViewModel() {
     val repo by inject(CurrencyRepository::class.java)
     val from = MutableLiveData(BigDecimal.ZERO)
     val to = MutableLiveData(BigDecimal.ZERO)
-    fun getRates(from: String, to: String, onError: (message: String) -> Unit) = repo.getRate<CurrencyRate>(Pair(from, to), onError)
+    fun getRates(from: String, to: String, onError: (message: String) -> Unit) =
+        repo.getRate<CurrencyRate>(Pair(from, to), onError)
 }

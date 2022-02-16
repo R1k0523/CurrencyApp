@@ -12,10 +12,8 @@ import ru.boringowl.parapp.presentation.repository.network.currency.CurrencyServ
 
 
 val networkModule = module {
-
     single { okhttpClient() }
-
-    single() { retrofit(get(), BuildConfig.BASE_URL) }
+    single { retrofit(get(), BuildConfig.BASE_URL) }
     single { apiCurrency(get()) }
     single { currencyService(get()) }
 }

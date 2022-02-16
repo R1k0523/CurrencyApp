@@ -35,26 +35,11 @@ class MainActivity : AppCompatActivity() {
         }
         binding.fromSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                convert()
-            }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) = convert()
         }
         binding.toSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                convert()
-            }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) = convert()
         }
         binding.amountFrom.setOnFocusChangeListener { view, b -> if (b) reversed = false }
         binding.amountTo.setOnFocusChangeListener { view, b -> if (b) reversed = true }
@@ -68,14 +53,18 @@ class MainActivity : AppCompatActivity() {
         val to = binding.toSpinner.selectedItem as String
         val rate = viewModel.getRates(from, to) {
             Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+            if (reversed)
+                binding.amountFrom.setText("")
+            else
+                binding.amountTo.setText("")
         }
         rate.observe(this) {
             if (it != null)
                 if (reversed) {
-                    val text = (viewModel.to.value!!.divide(it.rate.toBigDecimal(), 2, RoundingMode.HALF_UP)).toPlainString()
+                    val text = (viewModel.to.value!!.divide(it.rate.toBigDecimal(), 2, RoundingMode.HALF_UP).stripTrailingZeros()).toPlainString()
                     binding.amountFrom.setText(text)
                 } else {
-                    val text = (viewModel.from.value!!.multiply(it.rate.toBigDecimal())).toPlainString()
+                    val text = (viewModel.from.value!!.multiply(it.rate.toBigDecimal()).stripTrailingZeros()).toPlainString()
                     binding.amountTo.setText(text)
                 }
             binding.loading = false

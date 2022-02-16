@@ -11,5 +11,5 @@ import ru.boringowl.parapp.presentation.repository.room.dao.CurrencyDAO
     version = 1, exportSchema = false)
 @TypeConverters(DataTypeConverter::class)
 abstract class MyDatabase : RoomDatabase() {
-    abstract fun exchangeRateDAO(): CurrencyDAO
+    abstract fun currencyRateDAO(): CurrencyDAO
 }
